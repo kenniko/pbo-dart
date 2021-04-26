@@ -1,31 +1,29 @@
 import 'dart:io';
 
 main(List<String> arguments) {
-  int number = int.tryParse(stdin.readLineSync());
-  String output;
-
-  if (number > 0) {
-    print('positif');
-  } else if (number < 0) {
-    print('negatif');
-  } else {
-    print('nol');
+  int i = 0;
+  while (i < 5) {
+    print('halo ke ' + i.toString());
+    i += 1;
   }
 
-  output = (number > 0) ? "posifit" : "negatif atau nol";
-  print(output);
+  print('======');
 
-  switch (number) {
-    case 0:
-      print('nol');
-      break;
-    case 1:
-      print('satu');
-      break;
-    case 2:
-      print('dua');
-      break;
-    default:
-      print('bilangan lain');
+  for (int counter = 1; counter < 5; counter = counter + 1) {
+    print('halo');
   }
+
+  print('======');
+
+  int x = 0;
+  do {
+    print('dododo ke ' + x.toString());
+    x += 1;
+  } while (x < 5);
+
+  int a, b, c;
+  a = 10;
+  b = ++a;
+  c = a++;
+  print(a.toString() + ' ' + b.toString() + ' ' + c.toString());
 }

@@ -1,57 +1,52 @@
 import 'dart:io';
 
-double luas_segiempat(double panjang, double lebar) {
-  // double hasil;
-  // hasil = panjang * lebar;
-  // return hasil;
-  return panjang * lebar;
-}
+main(List<String> args) {
+  List<int> myList = [1, 2, 3, 4, 5, 6, 7];
+  List<int> list = [1, 2, 3];
+  List<String> listString = [];
 
-void sapa_penonton() {
-  print('Hello penonton!');
-}
+  myList.add(10);
+  myList.addAll(list);
+  myList.insert(1, 20);
+  myList.insertAll(3, [30, 40, 50]);
+  myList.removeRange(1, 4);
 
-String say(String from, String message, {String to, String appName}) {
-  // parameter optional berdasarkan nama parameter
-  return from +
-      ' say ' +
-      message +
-      ((to != null) ? ' to ' + to : '') +
-      ((appName != null) ? ' via ' + appName : '');
-}
+  myList.removeWhere((number) => number % 2 != 0);
 
-String say2(String from, String message,
-    [String to, String appName = 'WhatsApp']) {
-  // parameter optional berdasarkan urutas
-  return from +
-      ' say ' +
-      message +
-      ((to != null) ? ' to ' + to : '') +
-      ((appName != null) ? ' via ' + appName : '');
-}
+  if (myList.contains(6)) {
+    print('Betul!');
+  }
 
-double luas_segiempat2(double panjang, double lebar) => panjang * lebar;
+  list = myList.sublist(3, 6);
+  list.clear();
 
-int doMathOperator(int number1, int number2, Function(int, int) operator) =>
-    operator(number1, number2);
+  myList.sort((a, b) => b - a);
 
-main(List<String> arguments) {
-  print(say('Johny', 'Hello', appName: 'WhatsApp'));
-  print(say2('Johny', 'Hello', 'Doris'));
+  myList.removeWhere((n) => n % 2 == 0);
+  if (myList.every((number) => number % 2 != 0)) {
+    print('Semua ganjil');
+  } else {
+    print('Tidak semua ganjil');
+  }
 
-  double p, l, luas;
-  Function f;
-  f = luas_segiempat2;
+  if (myList.isEmpty) {
+    print('Kosong');
+  }
 
-  p = double.tryParse(stdin.readLineSync());
-  l = double.tryParse(stdin.readLineSync());
+  if (myList.isNotEmpty) {
+    print('Tidak kosong');
+  }
 
-  luas = luas_segiempat(p, l);
+  Set<int> s;
+  s = myList.toSet();
 
-  print(luas);
+  listString = myList.map((number) => 'angka ' + number.toString()).toList();
 
-  sapa_penonton();
+  // for (int bilangan in list) {
+  //   print(bilangan);
+  // }
 
-  print(f(6.0, 3.0));
-  print(doMathOperator(2, 3, (a, b) => a * b));
+  list.forEach((bilangan) {
+    print(bilangan);
+  });
 }
